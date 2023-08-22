@@ -73,5 +73,9 @@ body {
 
 .hist-data, .hist-result{
     background: #f7b7b7;
+}
+
+.hist-result:hover{
     cursor: pointer;
+    background: #eb3131;
 }
