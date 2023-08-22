@@ -7,54 +7,56 @@
     <title>Calculadora - StackX Lab</title>
 </head>
 <body>
-    <section class="container calc">
-        <h1 class="titulo">Calculadora</h1>
-        <table class="calculadora">
-            <tr>
-                <td colspan="4"><input type="text"  disabled class="display"></td>
-            </tr>
-
-            <tr>
-                <td><button class="btn btn-num">7</button></td>
-                <td><button class="btn btn-num">8</button></td>
-                <td><button class="btn btn-num">9</button></td>
-                <td><button class="btn btn-clear">C</button></td>
-            </tr>
-
-            <tr>
-                <td><button class="btn btn-num">4</button></td>
-                <td><button class="btn btn-num">5</button></td>
-                <td><button class="btn btn-num">6</button></td>
-                <td><button class="btn btn-num">/</button></td>
-            </tr>
-
-            <tr>
-                <td><button class="btn btn-num">1</button></td>
-                <td><button class="btn btn-num">2</button></td>
-                <td><button class="btn btn-num">3</button></td>
-                <td><button class="btn btn-num">*</button></td>
-            </tr>
-
-            <tr>
-                <td><button class="btn btn-num">0</button></td>
-                <td><button class="btn btn-equal">=</button></td>
-                <td><button class="btn btn-num">+</button></td>
-                <td><button class="btn btn-num">-</button></td>
-            </tr>
-        </table>
-    </section>
-
     <section class="container">
-        <h1 class="titulo">Histórico</h1>
-        <table class='Table-Historico'>
-            <tr>
-                <th class="historico hist-titulo">Data</th>
-                <th class="historico hist-titulo">Resultado</th>
-            </tr>
-        </table>
-        
+        <section class="container-calc">
+            <h1 class="titulo">Calculadora</h1>
+            <table class="calculadora">
+                <tr>
+                    <td colspan="4"><input type="text"  disabled class="display"></td>
+                </tr>
+    
+                <tr>
+                    <td><button class="btn btn-num">7</button></td>
+                    <td><button class="btn btn-num">8</button></td>
+                    <td><button class="btn btn-num">9</button></td>
+                    <td><button class="btn btn-clear">C</button></td>
+                </tr>
+    
+                <tr>
+                    <td><button class="btn btn-num">4</button></td>
+                    <td><button class="btn btn-num">5</button></td>
+                    <td><button class="btn btn-num">6</button></td>
+                    <td><button class="btn btn-num">/</button></td>
+                </tr>
+    
+                <tr>
+                    <td><button class="btn btn-num">1</button></td>
+                    <td><button class="btn btn-num">2</button></td>
+                    <td><button class="btn btn-num">3</button></td>
+                    <td><button class="btn btn-num">*</button></td>
+                </tr>
+    
+                <tr>
+                    <td><button class="btn btn-num">0</button></td>
+                    <td><button class="btn btn-equal">=</button></td>
+                    <td><button class="btn btn-num">+</button></td>
+                    <td><button class="btn btn-num">-</button></td>
+                </tr>
+            </table>
+        </section>
+    
+        <section class="container-hist">
+            <h1 class="titulo">Histórico</h1>
+            <table class='Table-Historico'>
+                <tr>
+                    <th class="historico hist-titulo">Data</th>
+                    <th class="historico hist-titulo">Resultado</th>
+                </tr>
+            </table>
+        </section>
 
     </section>
+    
     
     <script src="./assets/js/main.js"></script>
 </body>
