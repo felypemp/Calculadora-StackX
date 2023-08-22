@@ -3,26 +3,20 @@ const data = new Date();
 
 
 ////////////////////////////////////////////////////////////////////////
-function criaTd(texto){
-  const td = document.createElement('td');
-  td.classList.add('historico', 'hist-linha');
-  return td
-}
 
-function criaTr(){
+function adicionarHistorico(data, resultado){
   const tr = document.createElement('tr');
-  return tr
-}
+  const td1 = document.createElement('td');
+  const td2 = document.createElement('td');
+  td1.classList.add('historico', 'hist-data');
+  td2.classList.add('historico', 'hist-result');
 
-function adicionarLinha(valor1, valor2){
-  const tr = criaTr();
-  const td1 = criaTd();
-  const td2 = criaTd();
-  td1.innerText = valor1;
-  td2.innerText = valor2;
+  td1.innerText = data;
+  td2.innerText = resultado;
   tr.appendChild(td1);
   tr.appendChild(td2);
   tabelaHistorico.appendChild(tr);
+  
 }
 
 
@@ -43,9 +37,6 @@ function formataData(data){
   return `${dia}/${mes}/${ano} ${horas}:${minutos}:${segundos}`
 }
 
-const dataAtual = formataData(data);
-
-
 
 //////////////////////////////////////////////////////////////////////
 
@@ -55,8 +46,10 @@ function Calculadora(){
 
     this.btnParaDisplay = (valor) => this.display.value += valor;
 
-    this.clearDisplay = () => this.display.value = '';
+    this.histParaDisplay = (valor) => this.display.value = valor;
 
+    this.clearDisplay = () => this.display.value = '';
+    
     this.realizaConta = () => {
         conta = this.display.value;
     
@@ -74,9 +67,9 @@ function Calculadora(){
           return;
         }
 
-        adicionarLinha(dataAtual, conta)
+        var dataAtual = () => formataData(data)
+        adicionarHistorico(dataAtual(), conta)
 
-        // return console.log(conta + ' ' + dataAtual);
       }
     
 
@@ -98,6 +91,12 @@ function Calculadora(){
 
               if(elemento.classList.contains('btn-equal')) {
                 this.realizaConta();
+                
+              }
+
+              if(elemento.classList.contains('hist-result')) {
+                this.histParaDisplay(elemento.innerText)
+                
               }
         })
     }
@@ -108,4 +107,4 @@ const calculadora = new Calculadora;
 calculadora.inicia();
 
 
-
+/////////////////////////////////////////////////////////////////
