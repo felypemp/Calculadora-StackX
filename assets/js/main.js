@@ -1,19 +1,54 @@
+var valor = [];
+var historico = []
+var tabelaHistorico = document.querySelector('.Table-Historico');
 
-function adicionarHistorico(data, resultado){
-  const tabelaHistorico = document.querySelector('.Table-Historico');
+function criaTr() {
   const tr = document.createElement('tr');
-  const td1 = document.createElement('td');
-  const td2 = document.createElement('td');
-  td1.classList.add('historico', 'hist-data');
-  td2.classList.add('historico', 'hist-result');
+  tr.classList.add('trValor');
+  return tr;
+}
 
-  td1.innerText = data;
-  td2.innerText = resultado;
-  tr.appendChild(td1);
-  tr.appendChild(td2);
+function removerTds() {
+  var tds = document.querySelectorAll('.Table-Historico .trValor'); 
+
+  for (var i = 0; i < tds.length; i++) {
+      var td = tds[i];
+      td.parentNode.removeChild(td); // Remove a célula 'td'
+  }
+}
+
+function criaTd(){
+  const td = document.createElement('td');
+  return td;
+}  
+
+function adicionarHistorico(valor){
+
+  const td = criaTd();
+  const td1 = criaTd();
+  const tr = criaTr();
+  
+  valor.forEach(function(dados, index){
+    if (index === 0) {
+      td.classList.add('historico', 'hist-data');
+      td.innerText = dados;
+      tr.appendChild(td);
+      console.log(dados)
+    } 
+  
+    if (index === 1) {
+      td1.classList.add('historico', 'hist-result');
+      td1.innerText = dados;
+      tr.appendChild(td1);
+      console.log(dados)
+    }
+  })
+  
   tabelaHistorico.appendChild(tr);
   
 }
+
+
 
 
 ////////////////////////////////////////////////////////////////////////
@@ -64,8 +99,6 @@ function Calculadora(){
           return;
         }
 
-        adicionarHistorico(dataAtual(), conta)
-
       }
     
 
@@ -87,7 +120,27 @@ function Calculadora(){
 
               if(elemento.classList.contains('btn-equal')) {
                 this.realizaConta();
+
+                //////////////////////////////////
+
+                valor.unshift(dataAtual(), conta)
+                if (historico.length <=3){
+                   historico.push(valor)
+                } else {
+                  historico.shift();
+                  historico.push(valor)
+                 }
+                valor = []
                 
+                //////////////////////////////////
+
+                const trValor = document.querySelector('.trValor')
+                // tabelaHistorico.innerHTML = '';
+                removerTds()
+                historico.forEach(function(hist) {
+                  adicionarHistorico(hist)
+                });
+
               }
 
               if(elemento.classList.contains('hist-result')) {

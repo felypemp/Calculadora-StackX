@@ -1,4 +1,5 @@
-@import url('https://fonts.googleapis.com/css2?family=Kanit:wght@300;400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Handjet:wght@300;400&family=Kanit:wght@300;400&display=swap');
+
 :root {
     --primary-color: rgb(17, 86, 102);
     --primary-color-darker: rgb(9, 48, 56);
@@ -16,6 +17,14 @@ body {
     font-family: 'Kanit', sans-serif;    
 }
 
+h1{
+    text-align: center;
+    margin-top: 5rem;
+    color: #fff;
+    font-family: 'Handjet', cursive;
+    font-size: 5rem;
+}
+
 .container{
     display: flex;
     justify-content: center;
@@ -27,17 +36,12 @@ body {
 }
 
 .container-calc, .container-hist {
-    width: 430px;
+    min-width: 400px;
+    height: 470px;
     margin: 30px;
     background: #fff;
     border-radius: 10px;
     padding: 1rem;
-    display: flex;
-    flex-direction: column;
-}
-
-.calculadora{
-    width: 400px;
 }
 
 .display {
