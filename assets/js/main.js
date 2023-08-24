@@ -139,7 +139,6 @@ function Calculadora(){
                 //////////////////////////////////
 
                 const trValor = document.querySelector('.trValor')
-                // tabelaHistorico.innerHTML = '';
                 removerTds()
                 historico.forEach(function(hist) {
                   adicionarHistorico(hist)
