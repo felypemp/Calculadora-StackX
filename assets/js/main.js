@@ -102,7 +102,6 @@ function Calculadora(){
           alert('Conta inválida');
           return;
         }
-
       }
     
 
