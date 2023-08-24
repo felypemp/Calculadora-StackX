@@ -26,6 +26,7 @@ function adicionarHistorico(valor){
 
   const td = criaTd();
   const td1 = criaTd();
+  const td2 = criaTd();
   const tr = criaTr();
   
   valor.forEach(function(dados, index){
@@ -33,23 +34,25 @@ function adicionarHistorico(valor){
       td.classList.add('historico', 'hist-data');
       td.innerText = dados;
       tr.appendChild(td);
-      console.log(dados)
     } 
   
     if (index === 1) {
-      td1.classList.add('historico', 'hist-result');
+      td1.classList.add('historico', 'hist-operacao');
       td1.innerText = dados;
       tr.appendChild(td1);
-      console.log(dados)
+
+    }
+
+    if (index === 2) {
+      td2.classList.add('historico', 'hist-result');
+      td2.innerText = dados;
+      tr.appendChild(td2);
     }
   })
   
   tabelaHistorico.appendChild(tr);
   
 }
-
-
-
 
 ////////////////////////////////////////////////////////////////////////
 function zeroEsquerda(num){
@@ -84,6 +87,7 @@ function Calculadora(){
     
     this.realizaConta = () => {
         conta = this.display.value;
+        operacao = this.display.value;
     
         try {
           conta = eval(conta);
@@ -123,7 +127,7 @@ function Calculadora(){
 
                 //////////////////////////////////
 
-                valor.unshift(dataAtual(), conta)
+                valor.unshift(dataAtual(), operacao, conta)
                 if (historico.length <=3){
                    historico.push(valor)
                 } else {
@@ -144,6 +148,11 @@ function Calculadora(){
               }
 
               if(elemento.classList.contains('hist-result')) {
+                this.histParaDisplay(elemento.innerText)
+                
+              }
+
+              if(elemento.classList.contains('hist-operacao')) {
                 this.histParaDisplay(elemento.innerText)
                 
               }

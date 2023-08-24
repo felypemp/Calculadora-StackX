@@ -68,7 +68,7 @@ h1{
     width: 100%;
     height:4rem;
     border: none;
-    
+    text-align: center;
     padding: 0.5rem;
 }
 
@@ -77,11 +77,11 @@ h1{
     font-size: 1.5rem;
 }
 
-.hist-data, .hist-result{
+.hist-data, .hist-result, .hist-operacao{
     background: #f7b7b7;
 }
 
-.hist-result:hover{
+.hist-result:hover, .hist-operacao:hover{
     cursor: pointer;
     background: #eb3131;
 }
