@@ -85,3 +85,43 @@ h1{
     cursor: pointer;
     background: #eb3131;
 }
+
+
+@media screen and (max-width: 900px) {
+    h1{
+        font-size: 4rem;
+    }
+
+    .container{
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .container-calc, .container-hist {
+        width: 500px;
+        padding: 1rem;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    body {
+        font-size: 0.8rem;
+        line-height: 0.9rem;
+        font-family: 'Kanit', sans-serif;    
+    }
+
+    h1{
+        font-size: 2.5rem;
+    }
+
+    .container-calc, .container-hist {
+        min-width: 100px;
+        width: 300px;
+        padding: 1rem;
+    }
+
+    .hist-titulo{
+        background: #dfdfdf;
+        font-size: 1rem;
+    }
+}
